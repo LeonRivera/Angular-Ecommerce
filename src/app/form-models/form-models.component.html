@@ -1,0 +1,48 @@
+<div class="flex flex-column">
+    <label for="">Field Varchar</label>
+  <input
+    [(ngModel)]="model.fieldVarchar"
+    type="text"
+    pInputText
+    placeholder="Field Varchar"
+  />
+  <label for="">Fiel Decimal</label>
+  <input
+    [(ngModel)]="model.fieldDecimal"
+    type="text"
+    pInputText
+    placeholder="Field Decimal"
+  />
+  <label for="">Field Date</label>
+  <!-- <input  [(ngModel)]="model.fieldDate" type="text" pInputText placeholder="Field Date"/> -->
+  <!-- <input  [(ngModel)]="" type="text" pInputText placeholder="Field Date"/> -->
+  <!-- <p-calendar [(ngModel)]="dateValue" dateFormat="dd.mm.yy"></p-calendar> -->
+  <p-calendar [(ngModel)]="model.fieldDate"
+  [showIcon]="true" inputId="icon"></p-calendar>
+
+
+</div>
+
+
+<button
+pButton
+type="button"
+label="Update"
+(click)="update()"
+*ngIf="updating; else elseBlockButton"
+></button>
+
+<ng-template #elseBlockButton>
+<button pButton type="button" label="Create" (click)="save()"></button>
+</ng-template>
+
+<button
+pButton
+type="button"
+label="Cancel"
+[routerLink]="['/models']"
+></button>
+
+
+
+<!-- <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown> -->

@@ -1,0 +1,101 @@
+
+
+<div class="flex flex-column">
+
+  <div class="mb-5 flex justify-content-center">
+    <p-avatar icon="pi pi-user" styleClass="" size="xlarge" 
+    *ngIf="!updating else elseBlock"></p-avatar>
+    <ng-template #elseBlock>
+      <p-avatar styleClass="" size="xlarge"
+      image="{{user.urlImage}}"></p-avatar>
+    </ng-template>
+
+  </div>
+
+
+  <label for="">Name</label>
+  <input [(ngModel)]="user.name" type="text" pInputText placeholder="Name" />
+  <label for="" class="mt-5">Gender</label>
+  <input
+    [(ngModel)]="user.gender"
+    type="text"
+    pInputText
+    placeholder="Gender"
+  />
+  <label class="mt-5" for="">Emails</label>
+  <!-- <input type="text" [(ngModel)]="userEmails[0].email" pInputText placeholder="Email" /> -->
+
+  <!-- <p-chips [(ngModel)]="userStringEmails">
+      <ng-template let-email pTemplate="email">
+          {{email}} - (active) <i class="pi pi-envelope p-ml-2"></i>
+      </ng-template>
+  </p-chips> -->
+
+  <p-chips [(ngModel)]="userStringEmails" pTooltip="Click enter to add one or more emails"  tooltipPosition="top" tooltipEvent="focus"></p-chips>
+
+  <div class="flex">
+      <p-fileUpload
+      class="mt-5"
+      mode="basic"
+      name="file"
+      [auto]="true"
+      [customUpload]="true"
+      (onSelect)="onBasicUpload($event)"
+      chooseLabel="Upload Profile Picture"
+      pTooltip="You can add an image only once"  tooltipPosition="top"
+    ></p-fileUpload>
+    
+
+    <!-- <button
+    class=""
+    pButton
+    type="button"
+    label="Create"
+
+  ></button> -->
+  </div>
+
+  <!-- <input type="file" (change)="onFileSelect($event)"> -->
+
+  <!-- <h5>Basic</h5> -->
+  <!-- <p-fileUpload [auto]="true" mode="basic" [customUpload]="true" (uploadHandler)="onBasicUpload($event)"></p-fileUpload> -->
+  
+  <p-dropdown
+    [(ngModel)]="user.status"
+    class="my-5"
+    [options]="status"
+    optionLabel="name"
+    optionValue="value"
+  ></p-dropdown>
+</div>
+
+<button
+  class="w-full"
+  pButton
+  type="button"
+  label="Update"
+  (click)="update()"
+  *ngIf="updating; else elseBlockButton"
+></button>
+
+<ng-template #elseBlockButton>
+  <button
+    class="w-full"
+    pButton
+    type="button"
+    label="Create"
+    (click)="save()"
+  ></button>
+</ng-template>
+
+
+<!-- 
+<button
+  pButton
+  type="button"
+  label="Cancel"
+  [routerLink]="['/models']"
+></button> -->
+
+<!-- <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown> -->
+<p-toast></p-toast>
