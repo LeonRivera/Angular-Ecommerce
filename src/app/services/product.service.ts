@@ -9,6 +9,6 @@ import { AbstractRepository } from './abstract-repository';
 })
 export class ProductService extends AbstractRepository<Product>{
   constructor(httpClient: HttpClient,router: Router) { 
-    super(httpClient, router, "model");
+    super(httpClient, router, "product");
   }
 }

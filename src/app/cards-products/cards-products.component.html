@@ -1,1 +1,23 @@
-<p>cards-products works!</p>
+<div class="mt-5 w-full grid">
+  <p-card
+    *ngFor="let p of products"
+    class="col-4"
+    header="{{ p.name }}"
+    subheader="{{ p.price | currency: 'MNX':'$':'1.2' }}"
+    [style]="{ width: '300px' }"
+    styleClass="p-card-shadow "
+  >
+    <ng-template pTemplate="header">
+      <img alt="Card" src="{{ p.urlImage }}" />
+    </ng-template>
+    <p>{{ p.description }}</p>
+    <ng-template pTemplate="footer">
+      <!-- <p-button label="Save" icon="pi pi-check"></p-button> -->
+      <p-button
+        label="Agregar al carrito"
+        icon="pi pi-shopping-cart"
+        styleClass="p-button-secondary w-full"
+      ></p-button>
+    </ng-template>
+  </p-card>
+</div>

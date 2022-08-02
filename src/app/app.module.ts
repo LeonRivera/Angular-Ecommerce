@@ -12,6 +12,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { TableUsersComponent } from './table-users/table-users.component';
 import { FormUsersComponent } from './form-users/form-users.component';
 import { CardsProductsComponent } from './cards-products/cards-products.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { CardsProductsComponent } from './cards-products/cards-products.componen
     FormModelsComponent,
     TableUsersComponent,
     FormUsersComponent,
-    CardsProductsComponent
+    CardsProductsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

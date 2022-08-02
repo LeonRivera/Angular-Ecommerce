@@ -10,7 +10,6 @@ import { ModelService } from '../services/model.service';
 import { UserService } from '../services/user.service';
 import { OperationUtils } from '../utils/operation-utils';
 import { MessageService } from 'primeng/api';
-import { textChangeRangeIsUnchanged } from 'typescript';
 
 @Component({
   selector: 'app-table-users',

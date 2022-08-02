@@ -14,6 +14,7 @@ import {TooltipModule} from 'primeng/tooltip';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import {ToolbarModule} from 'primeng/toolbar';
+import {CardModule} from 'primeng/card';
 
 const PrimeNgComponents = [
   ButtonModule,
@@ -30,7 +31,8 @@ const PrimeNgComponents = [
   TooltipModule,
   AvatarModule,
   AvatarGroupModule,
-  ToolbarModule
+  ToolbarModule,
+  CardModule
 ]
 
 @NgModule({
