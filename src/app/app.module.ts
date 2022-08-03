@@ -15,6 +15,11 @@ import { CardsProductsComponent } from './cards-products/cards-products.componen
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { StepperPaymentComponent } from './stepper-payment/stepper-payment.component';
+import { CardPaymentInfoComponent } from './card-payment-info/card-payment-info.component';
+import { CardPaymentDeliveryComponent } from './card-payment-delivery/card-payment-delivery.component';
+import { CardPaymentPayComponent } from './card-payment-pay/card-payment-pay.component';
+import { CardPaymentConfirmationComponent } from './card-payment-confirmation/card-payment-confirmation.component';
 
 
 @NgModule({
@@ -27,7 +32,12 @@ import { FooterComponent } from './footer/footer.component';
     CardsProductsComponent,
     HomeComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    StepperPaymentComponent,
+    CardPaymentInfoComponent,
+    CardPaymentDeliveryComponent,
+    CardPaymentPayComponent,
+    CardPaymentConfirmationComponent
   ],
   imports: [
     BrowserModule,
