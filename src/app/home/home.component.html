@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header [cartProductsHeader]="cartProductsHome"></app-header>
 
 <div class="grid grid-nogutter surface-section text-800">
     <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
@@ -16,6 +16,6 @@
     </div>
 </div>
 
-<app-cards-products></app-cards-products>
+<app-cards-products (cartProductsEvt)="getProductsCart($event)"></app-cards-products>
 
 <app-footer></app-footer>

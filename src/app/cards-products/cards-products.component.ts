@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { DialogService } from 'primeng/dynamicdialog';
 import { FormModelsComponent } from '../form-models/form-models.component';
 import { FormUsersComponent } from '../form-users/form-users.component';
@@ -20,9 +20,16 @@ import { Product } from '../models/product';
   styleUrls: ['./cards-products.component.css'],
   providers: [DialogService, MessageService],
 })
+
+
+
 export class CardsProductsComponent implements OnInit {
 
   products:Product[];
+
+  cartProducts:Product[] = [];
+
+  @Output() cartProductsEvt = new EventEmitter<Product[]>();
 
   constructor(
     private productService: ProductService,
@@ -35,6 +42,15 @@ export class CardsProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  addToCart(product:Product):void{
+    console.log("agregando : "+ product.name);
+    this.cartProducts.push(product);
+
+    console.log(this.cartProducts);
+
+    this.cartProductsEvt.emit(this.cartProducts);
   }
 
 }

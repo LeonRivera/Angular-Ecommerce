@@ -1,4 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { OrderDto } from '../models/order-dto';
 
 @Component({
   selector: 'app-card-payment-info',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardPaymentInfoComponent implements OnInit {
 
-  constructor() { }
+  orderDto:OrderDto = new OrderDto();
+
+
+  constructor(private router:Router,
+    private location:Location
+    ) { }
+
 
   ngOnInit(): void {
+      // this.router.getCurrentNavigation().extras.state;
+      console.log("Info payment state actual:"+this.location.getState());
+      console.log(this.location.getState());
+
   }
 
 }

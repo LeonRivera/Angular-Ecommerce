@@ -1,10 +1,13 @@
 <p-menubar [model]="items">
     <ng-template pTemplate="start">
-         <i class="pi pi-prime" style="font-size: 2.5rem; color: red;"></i>
+         <i class="pi pi-prime" style="font-size: 2.5rem;"></i>
          <p-button
+         badge="{{cartProductsHeader.length}}"
         label="Ir al carrito"
         icon="pi pi-shopping-cart"
         styleClass="p-button-secondary mx-5"
+        badgeClass="p-badge-danger"
+        (click)="show();"
       ></p-button>
     </ng-template>
     <ng-template pTemplate="end">

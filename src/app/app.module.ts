@@ -20,6 +20,7 @@ import { CardPaymentInfoComponent } from './card-payment-info/card-payment-info.
 import { CardPaymentDeliveryComponent } from './card-payment-delivery/card-payment-delivery.component';
 import { CardPaymentPayComponent } from './card-payment-pay/card-payment-pay.component';
 import { CardPaymentConfirmationComponent } from './card-payment-confirmation/card-payment-confirmation.component';
+import { TableProductsComponent } from './table-products/table-products.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { CardPaymentConfirmationComponent } from './card-payment-confirmation/ca
     CardPaymentInfoComponent,
     CardPaymentDeliveryComponent,
     CardPaymentPayComponent,
-    CardPaymentConfirmationComponent
+    CardPaymentConfirmationComponent,
+    TableProductsComponent
   ],
   imports: [
     BrowserModule,
