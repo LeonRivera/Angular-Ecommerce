@@ -14,6 +14,7 @@ import { FormUsersComponent } from './form-users/form-users.component';
 import { CardsProductsComponent } from './cards-products/cards-products.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { HeaderComponent } from './header/header.component';
     FormUsersComponent,
     CardsProductsComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
