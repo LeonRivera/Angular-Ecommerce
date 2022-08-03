@@ -20,9 +20,17 @@ export class CardPaymentInfoComponent implements OnInit {
 
   ngOnInit(): void {
       // this.router.getCurrentNavigation().extras.state;
-      console.log("Info payment state actual:"+this.location.getState());
-      console.log(this.location.getState());
+      console.log("Info payment state actual:");
+      // console.log(this.location.getState());
 
+      this.orderDto = history.state;
+
+      console.log(this.orderDto);
+      
+  }
+
+  nextStep():void{
+    this.router.navigateByUrl('payment/delivery', {state : this.orderDto})
   }
 
 }

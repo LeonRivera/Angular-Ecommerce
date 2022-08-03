@@ -5,28 +5,28 @@
         <label for="">Titular de la tarjeta</label>
         <div class="p-inputgroup my-2">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-            <input type="text" pInputText placeholder="Titular">         
+            <input [(ngModel)]="orderDto.titular" type="text" pInputText placeholder="Titular">         
         </div>
         <label for="">Numero de tarjeta</label>
         <div class="p-inputgroup my-2">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-            <input type="text" pInputText placeholder="Username">         
+            <input [(ngModel)]="orderDto.targetNumber" type="text" pInputText placeholder="Username">         
         </div>
 
         <label for="">CVV</label>
         <div class="p-inputgroup my-2">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-            <input type="text" pInputText placeholder="CVV">         
+            <input [(ngModel)]="orderDto.cvv" type="text" pInputText placeholder="CVV">         
         </div>
         <label for="">Caducidad</label>
         <div class="p-inputgroup my-2">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-            <input type="text" pInputText placeholder="Caducidad">         
+            <input [(ngModel)]="orderDto.expirationDate" type="text" pInputText placeholder="Caducidad">         
         </div>
     </div>
     
     <ng-template class="" pTemplate="footer">
-        <p-button label="Siguiente" icon="pi pi-check" iconPos="left"></p-button>
+        <p-button label="Siguiente" (click)="nextStep()" icon="pi pi-check" iconPos="left"></p-button>
     </ng-template>
 
 </p-card>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { OrderDto } from '../models/order-dto';
 
 @Component({
   selector: 'app-card-payment-pay',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardPaymentPayComponent implements OnInit {
 
-  constructor() { }
+  orderDto:OrderDto = new OrderDto();
+
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+    this.orderDto = history.state;
+  }
+
+  
+  nextStep():void{
+    this.router.navigateByUrl('payment/confirmation', {state : this.orderDto})
   }
 
 }

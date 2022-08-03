@@ -2,14 +2,14 @@ import { Product } from "./product";
 
 export class OrderDto {
 
-    nombre:string = "";
-    edad:number = 0;
-    correo:string = "";
-    direccion:string = ""; 
+    name:string = "";
+    age:number = 0;
+    email:string = "";
+    address:string = ""; 
     titular:string = "";
-    numeroTarjeta:number = 0;
+    targetNumber:number = 0;
     cvv:number = 0;
-    caducidad:string = "";
+    expirationDate:string = "";
     totalPrice:number = 0;
     quantity:number = 0;
     products:Product[] = [];
