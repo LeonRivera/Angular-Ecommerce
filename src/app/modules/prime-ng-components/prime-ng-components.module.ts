@@ -15,6 +15,7 @@ import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import {ToolbarModule} from 'primeng/toolbar';
 import {CardModule} from 'primeng/card';
+import {MenubarModule} from 'primeng/menubar';
 
 const PrimeNgComponents = [
   ButtonModule,
@@ -32,7 +33,8 @@ const PrimeNgComponents = [
   AvatarModule,
   AvatarGroupModule,
   ToolbarModule,
-  CardModule
+  CardModule,
+  MenubarModule,
 ]
 
 @NgModule({

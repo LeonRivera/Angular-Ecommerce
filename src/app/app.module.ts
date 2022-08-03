@@ -13,6 +13,7 @@ import { TableUsersComponent } from './table-users/table-users.component';
 import { FormUsersComponent } from './form-users/form-users.component';
 import { CardsProductsComponent } from './cards-products/cards-products.component';
 import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HomeComponent } from './home/home.component';
     TableUsersComponent,
     FormUsersComponent,
     CardsProductsComponent,
-    HomeComponent
+    HomeComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

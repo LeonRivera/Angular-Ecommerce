@@ -1,0 +1,22 @@
+<p-menubar [model]="items">
+    <ng-template pTemplate="start">
+         <i class="pi pi-prime" style="font-size: 2.5rem; color: red;"></i>
+         <p-button
+        label="Ir al carrito"
+        icon="pi pi-shopping-cart"
+        styleClass="p-button-secondary mx-5"
+      ></p-button>
+    </ng-template>
+    <ng-template pTemplate="end">
+        <input style="width: 600px;" type="text" pInputText placeholder="Search">
+    </ng-template>
+</p-menubar>
+
+
+<!-- <p-menubar [model]="items">
+    <ng-template pTemplate="start">
+        <i class="pi pi-prime" style="font-size: 2.5rem; color: red;"></i>
+        <input type="text" pInputText placeholder="Search">
+   </ng-template>
+    <button pButton label="Logout" icon="pi pi-power-off"></button>
+</p-menubar> -->
