@@ -51,6 +51,12 @@ export class CardsProductsComponent implements OnInit {
     console.log(this.cartProducts);
 
     this.cartProductsEvt.emit(this.cartProducts);
+
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Agregado al carrito',
+      detail: 'Agregaste un producto al carrito',
+    });
   }
 
 }

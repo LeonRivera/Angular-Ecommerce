@@ -1,16 +1,24 @@
-<p-card styleClass="m-5" header="Resumen Information">
+<p-card styleClass="m-5" header="Resumen Informacion">
   <p>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias
-    repudiandae doloremque debitis. Veritatis asperiores vero quidem obcaecati
-    natus sit illum aliquam veniam at quibusdam minus modi minima corrupti
-    mollitia ad, impedit est hic nostrum? Dignissimos fugit incidunt ex quidem
-    magni sapiente, impedit qui sint vitae ad, a animi officiis necessitatibus
-    assumenda ipsam nam hic eum? Molestiae architecto sed sequi repellendus!
+    Verifica tu informacion
   </p>
 
 
+  <p-divider></p-divider>
+
   <p>Nombre: {{orderDto.name}}</p>
 
+  <p>Email: {{orderDto.email}}</p>
+
+  <p>Direccion de Envio: {{orderDto.address}}</p>
+   
+  <p-divider></p-divider>
+  
+
+  <p>Total de productos: {{orderDto.quantity}}</p>
+
+  <h2>Total: {{orderDto.totalPrice}}</h2>
   <ng-template class="" pTemplate="footer">
+    <p-button label="Siguiente" (click)="show()" icon="pi pi-check" iconPos="left"></p-button>
   </ng-template>
 </p-card>

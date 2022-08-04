@@ -1,12 +1,14 @@
 <p-table [value]="cartProducts">
     <ng-template pTemplate="header">
         <tr>
-            <th>Nombre</th>
+            <th></th> 
+            <th>Nombre</th> 
             <th>Precio</th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-p>
         <tr>
+            <td><img style="width: 50px;" src="{{p.urlImage}}"></td>
             <td>{{p.name}}</td>
             <td>{{p.price}}</td>
         </tr>
