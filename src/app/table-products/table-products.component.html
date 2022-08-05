@@ -1,6 +1,6 @@
 
 
-<div *ngIf="cartProducts.length > 0 else elseBlock">
+<div *ngIf="cartProducts != undefined else elseBlock">
     <p-table [value]="cartProducts" >
         <ng-template pTemplate="header">
             <tr>
@@ -24,12 +24,17 @@
     
     <p-divider></p-divider>
     
-    <p-button (click)="proceedPayment()" label="Ir a pagar" icon="pi pi-check" iconPos="left"></p-button>
+    <div *ngIf="!pay"> 
+        <p-button (click)="proceedPayment()" label="Ir a pagar" icon="pi pi-check" iconPos="left"></p-button>
+    </div>
     <!-- <p-button (click)="proceedPayment()" [routerLink]="['payment/info']" [state]="" label="Ir a pagar" icon="pi pi-check" iconPos="left"></p-button> -->
     
 </div>
 
 <ng-template #elseBlock>
     <h2 class="text-center">No cuentas con ningun producto en tu carrito</h2>
-    <p-button (click)="proceedPayment()" label="Ir a pagar" icon="pi pi-check" iconPos="left"></p-button>
+
+    <div *ngIf="!pay"> 
+        <p-button (click)="proceedPayment()" label="Ir a pagar" icon="pi pi-check" iconPos="left"></p-button>
+    </div>
 </ng-template>

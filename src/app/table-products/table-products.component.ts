@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit, Optional } from "@angular/core";
 import { Router, RouterLink } from "@angular/router";
 import { DynamicDialogRef } from "primeng/dynamicdialog";
 import { DynamicDialogConfig } from "primeng/dynamicdialog";
@@ -12,30 +12,46 @@ import { Product } from "../models/product";
 })
 export class TableProductsComponent implements OnInit {
 
-  cartProducts:Product[] = [];
+  
+  @Input() cartProducts:Product[] = [];
+  
+  @Input() pay:boolean;
+
   orderDto:OrderDto = new OrderDto();
 
   totalCartPrice:number = 0;
 
   constructor(
+    @Optional()
     public ref: DynamicDialogRef,
+    @Optional()
     public config: DynamicDialogConfig,
     private router:Router
   ) {
 
-    let psCart = this.config.data.productsCart;
-    console.log("Table Component");
-    console.log(psCart);
-    if(psCart.length > 0){
-      this.cartProducts = psCart;
-      this.cartProducts.forEach( p => {
-        this.totalCartPrice += p.price;
-      })
+    if(config != null){
+      let psCart = this.config.data.productsCart;
+      console.log("Table Component");
+      console.log(psCart);
+      if(psCart.length > 0){
+        this.cartProducts = psCart;
+      }
     }
 
+   
+
+    // if(config == null && this.cartProducts.length > 0){
+    //   this.cartProducts.forEach( p => {
+    //     this.totalCartPrice += p.price;
+    //   })
+    // }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cartProducts.forEach( p => {
+      this.totalCartPrice += p.price;
+    })
+  }
 
   proceedPayment(){
     this.orderDto.products = this.cartProducts;
@@ -48,10 +64,19 @@ export class TableProductsComponent implements OnInit {
     //parsing to JSON
   //  let jsonOrderDto =  JSON.stringify(this.orderDto);
   //   console.log("JSON: "+this.orderDto);
-
-    this.ref.close();
+    if(this.ref != null){
+      this.ref.close();
+    }
   
     // this.router.navigate(['payment/info']);
     this.router.navigateByUrl('payment/info', {state : this.orderDto})
   }
+
+  // calculateTotal():number{
+  //   this.cartProducts.forEach( p => {
+  //     this.totalCartPrice += p.price;
+  //   })
+
+  //   return this.totalCartPrice;
+  // }
 }

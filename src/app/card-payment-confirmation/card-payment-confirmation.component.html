@@ -13,12 +13,22 @@
   <p>Direccion de Envio: {{orderDto.address}}</p>
    
   <p-divider></p-divider>
+
+  <p-sidebar [(visible)]="displaySideBar" styleClass="p-sidebar-md" position="right">
+    <app-table-products [cartProducts]="cartProductsConfirm" [pay]="true"></app-table-products>
+  </p-sidebar>
+  
+  <p-button type="text" (click)="displaySideBar = true" icon="pi pi-cart" label="Mis productos"></p-button>
+
+  <p-divider></p-divider>
   
 
   <p>Total de productos: {{orderDto.quantity}}</p>
 
   <h2>Total: {{orderDto.totalPrice}}</h2>
   <ng-template class="" pTemplate="footer">
-    <p-button label="Pagar" (click)="show()" icon="pi pi-check" iconPos="left"></p-button>
+    <p-button label="Pagar" (click)="confirm()" icon="pi pi-check" iconPos="left"></p-button>
   </ng-template>
 </p-card>
+
+

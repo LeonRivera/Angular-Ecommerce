@@ -19,6 +19,7 @@ import {MenubarModule} from 'primeng/menubar';
 import {StepsModule} from 'primeng/steps';
 import {BadgeModule} from 'primeng/badge';
 import {DividerModule} from 'primeng/divider';
+import {SidebarModule} from 'primeng/sidebar';
 
 const PrimeNgComponents = [
   ButtonModule,
@@ -40,7 +41,8 @@ const PrimeNgComponents = [
   MenubarModule,
   StepsModule,
   BadgeModule,
-  DividerModule
+  DividerModule,
+  SidebarModule
 ]
 
 @NgModule({
