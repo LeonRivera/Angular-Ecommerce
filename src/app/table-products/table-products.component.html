@@ -1,26 +1,35 @@
-<p-table [value]="cartProducts">
-    <ng-template pTemplate="header">
-        <tr>
-            <th></th> 
-            <th>Nombre</th> 
-            <th>Precio</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-p>
-        <tr>
-            <td><img style="width: 50px;" src="{{p.urlImage}}"></td>
-            <td>{{p.name}}</td>
-            <td>{{p.price}}</td>
-        </tr>
-    </ng-template>
-</p-table>
 
-<p-divider></p-divider>
 
-<h2>Total: {{totalCartPrice | currency:'MNX':'$':'1.2'}}</h2>
+<div *ngIf="cartProducts.length > 0 else elseBlock">
+    <p-table [value]="cartProducts" >
+        <ng-template pTemplate="header">
+            <tr>
+                <th></th> 
+                <th>Nombre</th> 
+                <th>Precio</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-p>
+            <tr>
+                <td><img style="width: 50px;" src="{{p.urlImage}}"></td>
+                <td>{{p.name}}</td>
+                <td>{{p.price}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+    
+    <p-divider></p-divider>
+    
+    <h2>Total: {{totalCartPrice | currency:'MNX':'$':'1.2'}}</h2>
+    
+    <p-divider></p-divider>
+    
+    <p-button (click)="proceedPayment()" label="Ir a pagar" icon="pi pi-check" iconPos="left"></p-button>
+    <!-- <p-button (click)="proceedPayment()" [routerLink]="['payment/info']" [state]="" label="Ir a pagar" icon="pi pi-check" iconPos="left"></p-button> -->
+    
+</div>
 
-<p-divider></p-divider>
-
-<p-button (click)="proceedPayment()" label="Ir a pagar" icon="pi pi-check" iconPos="left"></p-button>
-<!-- <p-button (click)="proceedPayment()" [routerLink]="['payment/info']" [state]="" label="Ir a pagar" icon="pi pi-check" iconPos="left"></p-button> -->
-
+<ng-template #elseBlock>
+    <h2 class="text-center">No cuentas con ningun producto en tu carrito</h2>
+    <p-button (click)="proceedPayment()" label="Ir a pagar" icon="pi pi-check" iconPos="left"></p-button>
+</ng-template>

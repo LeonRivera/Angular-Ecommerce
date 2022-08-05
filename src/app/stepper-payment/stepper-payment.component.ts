@@ -26,11 +26,11 @@ export class StepperPaymentComponent implements OnInit {
         routerLink: "delivery",
       },
       {
-        label: "Payment",
+        label: "Pago",
         routerLink: "pay",
       },
       {
-        label: "Confirmation",
+        label: "Confirmacion",
         routerLink: "confirmation",
       },
     ];
