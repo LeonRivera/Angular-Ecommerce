@@ -1,6 +1,6 @@
 
 
-<div *ngIf="cartProducts != undefined else elseBlock">
+<div *ngIf="cartProducts != undefined && cartProducts.length > 0 else elseBlock">
     <p-table [value]="cartProducts" >
         <ng-template pTemplate="header">
             <tr>
@@ -32,9 +32,9 @@
 </div>
 
 <ng-template #elseBlock>
-    <h2 class="text-center">No cuentas con ningun producto en tu carrito</h2>
+    <h2 class="text-center mb-5">No cuentas con ningun producto en tu carrito</h2>
 
-    <div *ngIf="!pay"> 
+    <!-- <div *ngIf="!pay"> 
         <p-button (click)="proceedPayment()" label="Ir a pagar" icon="pi pi-check" iconPos="left"></p-button>
-    </div>
+    </div> -->
 </ng-template>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ConfirmationService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
 import { OrderDto } from '../models/order-dto';
 import { Product } from '../models/product';
@@ -7,7 +9,7 @@ import { Product } from '../models/product';
   selector: 'app-card-payment-confirmation',
   templateUrl: './card-payment-confirmation.component.html',
   styleUrls: ['./card-payment-confirmation.component.css'],
-  providers: [DialogService]
+  providers: [DialogService, ConfirmationService]
 })
 export class CardPaymentConfirmationComponent implements OnInit {
 
@@ -16,7 +18,9 @@ export class CardPaymentConfirmationComponent implements OnInit {
   cartProductsConfirm:Product[] = [];
 
   constructor(
+    private router:Router,
     public dialogService: DialogService,
+    private confirmationService: ConfirmationService
   ) { }
 
 
@@ -35,8 +39,13 @@ export class CardPaymentConfirmationComponent implements OnInit {
   //   this.displaySideBar ? false : true;
   // }
 
-  confirm(){
-
+  confirm() {
+    this.confirmationService.confirm({
+      message: "Are you sure that you want to perform this action?",
+      accept: () => {
+        this.router.navigate[""];
+      },
+    });
   }
 
 }

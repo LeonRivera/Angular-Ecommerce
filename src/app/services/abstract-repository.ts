@@ -9,9 +9,17 @@ export abstract class AbstractRepository<T> {
 //   private httpHeaders = new HttpHeaders({'Content-type':'application/json'});
   private devBaseUrl: string = "";
   private prodBaseUrl: string = "";
+
+  private ENV:string = "prod";
     
   constructor(protected httpClient: HttpClient,protected router: Router,protected modelUrl: string){
-    this.devBaseUrl = `http://localhost:8080/api/v1/${modelUrl}`
+
+    if(this.ENV === 'dev'){
+      this.devBaseUrl = `http://localhost:8080/api/v1/${modelUrl}`
+    }else{
+      this.devBaseUrl = `https://fotsi-ecommerce-api.azurewebsites.net/api/v1/${modelUrl}`
+    }
+    
   } 
 
   findAll():Observable<any>{
