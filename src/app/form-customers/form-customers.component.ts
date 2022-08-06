@@ -1,0 +1,67 @@
+import { Component, OnInit, Optional } from '@angular/core';
+import { MessageService } from 'primeng/api';
+import { Customer } from '../models/customer';
+
+import { ActivatedRoute, Router } from '@angular/router';
+import { Model } from '../models/model';
+import { ModelService } from '../services/model.service';
+import {DynamicDialogRef} from 'primeng/dynamicdialog';
+import {DynamicDialogConfig} from 'primeng/dynamicdialog';
+import { UserService } from '../services/user.service';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Email } from '../models/email';
+import { CustomerService } from '../services/customer.service';
+
+@Component({
+  selector: 'app-form-customers',
+  templateUrl: './form-customers.component.html',
+  styleUrls: ['./form-customers.component.css'],
+  providers: [MessageService]
+})
+export class FormCustomersComponent implements OnInit {
+
+
+  customer:Customer = new Customer();
+  status:any[];
+  public updating:boolean = false;
+  fileUploaded:any;
+
+  constructor(private router:Router,
+    private activatedRoute:ActivatedRoute,
+    private customerService:CustomerService,
+    @Optional()
+    public ref: DynamicDialogRef, 
+    @Optional()
+    public config: DynamicDialogConfig,
+    private formBuilder:FormBuilder,
+    private messageService: MessageService) { }
+
+  ngOnInit(): void {
+  }
+
+
+  onBasicUpload(event) {
+    console.log("on basic upload");
+    console.log(event.files[0]);
+    this.fileUploaded = event.files[0];
+    // console.log(event.target.files);
+    this.messageService.add({severity: 'info', summary: 'Uploaded', detail: `File ${this.fileUploaded.name} uploaded`});
+  }
+
+  save(){
+    console.log("Saving");
+    const formData = new FormData();
+    formData.append('file', this.fileUploaded);
+    formData.append('customer', JSON.stringify(this.customer))
+
+    this.customerService.save(formData).subscribe(e => {
+      console.log("Created");
+      console.log(e);
+    })
+  }
+  update(){
+
+  }
+  
+
+}

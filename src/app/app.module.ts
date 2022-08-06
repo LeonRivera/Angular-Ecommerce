@@ -22,6 +22,7 @@ import { CardPaymentPayComponent } from './card-payment-pay/card-payment-pay.com
 import { CardPaymentConfirmationComponent } from './card-payment-confirmation/card-payment-confirmation.component';
 import { TableProductsComponent } from './table-products/table-products.component';
 import { LoginComponent } from './login/login.component';
+import { FormCustomersComponent } from './form-customers/form-customers.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { LoginComponent } from './login/login.component';
     CardPaymentPayComponent,
     CardPaymentConfirmationComponent,
     TableProductsComponent,
-    LoginComponent
+    LoginComponent,
+    FormCustomersComponent
   ],
   imports: [
     BrowserModule,

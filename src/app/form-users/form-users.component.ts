@@ -23,9 +23,7 @@ export class FormUsersComponent implements OnInit {
   status:any[];
   public updating:boolean = false;
   fileUploaded:any;
-  msgs2: Message[] = [
-    {severity:'info', summary:'Info Message', detail:'PrimeNG rocks'}
-  ];
+
 
   // userEmails:Email[] = [
   //   {id: 0, email: 'asd'}
@@ -195,12 +193,9 @@ export class FormUsersComponent implements OnInit {
     console.log("add input error message");
     // this.msgs2.push()
     this.messageService.add({severity:'error', summary:'Fiel Required', detail:`Field ${input} is required`});
-    console.log(this.msgs2);
   }
 
-  clearMessages():void{
-    this.msgs2 = [];
-  }
+
 
   validateInputs():boolean{
 

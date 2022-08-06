@@ -10,7 +10,7 @@ export abstract class AbstractRepository<T> {
   private devBaseUrl: string = "";
   private prodBaseUrl: string = "";
 
-  private ENV:string = "prod";
+  private ENV:string = "dev";
     
   constructor(protected httpClient: HttpClient,protected router: Router,protected modelUrl: string){
 

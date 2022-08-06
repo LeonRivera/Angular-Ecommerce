@@ -6,17 +6,21 @@ import { CardPaymentDeliveryComponent } from "./card-payment-delivery/card-payme
 import { CardPaymentInfoComponent } from "./card-payment-info/card-payment-info.component";
 import { CardPaymentPayComponent } from "./card-payment-pay/card-payment-pay.component";
 import { CardsProductsComponent } from "./cards-products/cards-products.component";
+import { FormCustomersComponent } from "./form-customers/form-customers.component";
 import { FormModelsComponent } from "./form-models/form-models.component";
 import { FormUsersComponent } from "./form-users/form-users.component";
 import { HomeComponent } from "./home/home.component";
+import { LoginComponent } from "./login/login.component";
 import { StepperPaymentComponent } from "./stepper-payment/stepper-payment.component";
 import { TableModelsComponent } from "./table-models/table-models.component";
 import { TableUsersComponent } from "./table-users/table-users.component";
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
+  { path: "login", component: LoginComponent},
   { path: "users", component: TableUsersComponent },
   { path: "users/form", component: FormUsersComponent },
+  { path: "customers/form", component: FormCustomersComponent },
   { path: "users/form/:id", component: FormUsersComponent },
   {
     path: "payment",
