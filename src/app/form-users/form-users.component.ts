@@ -35,7 +35,6 @@ export class FormUsersComponent implements OnInit {
   // uploadForm:FormGroup;
 
   constructor(private router:Router,
-    private activatedRoute:ActivatedRoute,
     private userService:UserService,
     public ref: DynamicDialogRef, 
     public config: DynamicDialogConfig,

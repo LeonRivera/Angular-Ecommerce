@@ -5,18 +5,19 @@ import { Customer } from '../models/customer';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Model } from '../models/model';
 import { ModelService } from '../services/model.service';
-import {DynamicDialogRef} from 'primeng/dynamicdialog';
+import {DialogService, DynamicDialogRef} from 'primeng/dynamicdialog';
 import {DynamicDialogConfig} from 'primeng/dynamicdialog';
 import { UserService } from '../services/user.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Email } from '../models/email';
 import { CustomerService } from '../services/customer.service';
+import { CardCodeConfirmComponent } from '../card-code-confirm/card-code-confirm.component';
+import { EmailSenderService } from '../services/email-sender.service';
 
 @Component({
   selector: 'app-form-customers',
   templateUrl: './form-customers.component.html',
   styleUrls: ['./form-customers.component.css'],
-  providers: [MessageService]
 })
 export class FormCustomersComponent implements OnInit {
 
@@ -34,7 +35,10 @@ export class FormCustomersComponent implements OnInit {
     @Optional()
     public config: DynamicDialogConfig,
     private formBuilder:FormBuilder,
-    private messageService: MessageService) { }
+    private userService: UserService,
+    public dialogService: DialogService,
+    private messageService: MessageService,
+    private emailSenderService:EmailSenderService) { }
 
   ngOnInit(): void {
   }
@@ -57,10 +61,45 @@ export class FormCustomersComponent implements OnInit {
     this.customerService.save(formData).subscribe(e => {
       console.log("Created");
       console.log(e);
+      this.router.navigate(['/login']);
     })
   }
   update(){
 
+  }
+
+  showDialog(operation:string):void{
+
+
+    
+
+    let code = "";
+    console.log(this.customer.email);
+    this.emailSenderService.sendCode(this.customer.email).subscribe(e => {
+      console.log(e);
+      code = e;
+
+      const ref = this.dialogService.open(CardCodeConfirmComponent, {
+        data: {
+          code: code
+        },
+        header: 'Confirmation Code',
+        width: '30%',
+        height: '30%',
+      });
+  
+      ref.onClose.subscribe((isCorrect:boolean) => {
+        if(isCorrect){
+          this.save();
+
+        }
+      })
+
+    });
+
+
+
+    
   }
   
 

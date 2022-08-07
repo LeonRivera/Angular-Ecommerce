@@ -1,0 +1,11 @@
+<p-card>
+    <ng-template pTemplate="header">
+        <!-- Codigo de registro -->
+    </ng-template>
+    <input [(ngModel)]="codeInput" type="text" class="p-input text-lg w-full" placeholder="Ingresa el codigo enviado a tu correo"  pInputText />
+    <ng-template pTemplate="footer">
+        <button class="w-full" pButton type="button" label="Aceptar" 
+        (click)="validateCode();"></button>
+
+    </ng-template>
+</p-card>

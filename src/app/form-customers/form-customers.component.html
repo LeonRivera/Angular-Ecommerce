@@ -78,7 +78,7 @@
         pButton
         type="button"
         label="Update"
-        (click)="update()"
+        (click)="showDialog('update')"
         *ngIf="updating; else elseBlockButton"
       ></button>
 
@@ -88,7 +88,7 @@
           pButton
           type="button"
           label="Create"
-          (click)="save()"
+          (click)="showDialog('save')"
         ></button>
       </ng-template>
     </div>

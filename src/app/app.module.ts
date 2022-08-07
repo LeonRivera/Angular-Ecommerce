@@ -23,6 +23,9 @@ import { CardPaymentConfirmationComponent } from './card-payment-confirmation/ca
 import { TableProductsComponent } from './table-products/table-products.component';
 import { LoginComponent } from './login/login.component';
 import { FormCustomersComponent } from './form-customers/form-customers.component';
+import { CardCodeConfirmComponent } from './card-code-confirm/card-code-confirm.component';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 
 @NgModule({
@@ -43,7 +46,8 @@ import { FormCustomersComponent } from './form-customers/form-customers.componen
     CardPaymentConfirmationComponent,
     TableProductsComponent,
     LoginComponent,
-    FormCustomersComponent
+    FormCustomersComponent,
+    CardCodeConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +58,7 @@ import { FormCustomersComponent } from './form-customers/form-customers.componen
     BrowserAnimationsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DialogService, MessageService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
