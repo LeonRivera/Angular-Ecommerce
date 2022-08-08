@@ -48,9 +48,13 @@ export class TableProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cartProducts.forEach( p => {
-      this.totalCartPrice += p.price;
-    })
+
+    if(this.cartProducts != undefined){
+      this.cartProducts.forEach( p => {
+        this.totalCartPrice += p.price;
+      })
+    }
+    
   }
 
   proceedPayment(){

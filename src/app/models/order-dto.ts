@@ -10,8 +10,9 @@ export class OrderDto {
     targetNumber:number = 0;
     cvv:number = 0;
     expirationDate:string = "";
-    totalPrice:number = 0;
+    totalPrice:number = 0.0;
     quantity:number = 0;
     products:Product[] = [];
+    paymentType:string;
 
 }

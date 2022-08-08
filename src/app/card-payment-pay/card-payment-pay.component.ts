@@ -11,9 +11,19 @@ export class CardPaymentPayComponent implements OnInit {
 
   orderDto:OrderDto = new OrderDto();
 
-  constructor(private router:Router) { }
+  paymentOptions:any[] = [];
+
+
+
+  constructor(private router:Router) { 
+    this.paymentOptions = [
+      {name: "PayPal", value:"paypal"},
+      {name: "Esta web", value:"web"}
+    ]
+  }
 
   ngOnInit(): void {
+    // this.orderDto.paymentType="web"
     this.orderDto = history.state;
   }
 

@@ -1,7 +1,16 @@
 <p-card styleClass="m-5" header="Informacion de Pago">
     <p>Ingresa tu informacion de pago</p>
 
-    <div class="">
+
+    <div class="my-5">
+        <label for="" class="mr-5">Tipo de pago:</label>
+        <p-dropdown  [options]="paymentOptions" [(ngModel)]="orderDto.paymentType" optionLabel="name"
+        optionValue="value"></p-dropdown>
+    </div>
+
+
+    
+    <div class="" *ngIf="orderDto.paymentType == 'web'">
         <label for="">Titular de la tarjeta</label>
         <div class="p-inputgroup my-2">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>

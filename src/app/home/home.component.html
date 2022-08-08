@@ -9,7 +9,7 @@
             
 
 
-            <button pButton pRipple label="Ir a los productos" type="button" class="mr-3 p-button-raised"></button>
+            <button (click)="goToProducts()" pButton pRipple label="Ir a los productos" type="button" class="mr-3 p-button-raised"></button>
             <button pButton pRipple label="Sobre nosotros" type="button" class="p-button-outlined"></button>
         </section>
     </div>
@@ -21,3 +21,5 @@
 <app-cards-products (cartProductsEvt)="getProductsCart($event)"></app-cards-products>
 
 <app-footer></app-footer>
+
+<p-toast position="top-right"></p-toast>
