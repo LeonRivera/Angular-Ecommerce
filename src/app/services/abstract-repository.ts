@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { catchError, Observable, throwError } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 export abstract class AbstractRepository<T> {
 
@@ -9,10 +10,12 @@ export abstract class AbstractRepository<T> {
 //   private httpHeaders = new HttpHeaders({'Content-type':'application/json'});
   private devBaseUrl: string = "";
   private prodBaseUrl: string = "";
+  // private paramOfSearch:string = "";
 
-  private ENV:string = "dev";
+  private ENV:string = "prod";
     
-  constructor(protected httpClient: HttpClient,protected router: Router,protected modelUrl: string){
+  constructor(protected httpClient: HttpClient,protected router: Router,protected modelUrl: string,
+    protected messageService: MessageService = new MessageService()){
 
     if(this.ENV === 'dev'){
       this.devBaseUrl = `http://localhost:8080/api/v1/${modelUrl}`
@@ -32,6 +35,18 @@ export abstract class AbstractRepository<T> {
     return this.httpClient.get<T>(`${this.devBaseUrl}/${id}`)
     .pipe(
       catchError(e => {
+        return throwError(e);
+      })
+    )
+  }
+
+  findByParam(param, paramOfSearch:string):Observable<T>{
+    // this.paramOfSearch = paramOfSearch;
+    return this.httpClient.get<T>(`${this.devBaseUrl}/${paramOfSearch}/${param}`)
+    .pipe(
+      catchError(e => {
+        console.log(e.error.message);
+        this.messageService.add({severity:'error', summary:'Ha ocurrido un error', detail:e.error.message});
         return throwError(e);
       })
     )

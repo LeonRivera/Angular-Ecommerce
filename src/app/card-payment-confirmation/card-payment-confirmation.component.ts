@@ -52,7 +52,14 @@ export class CardPaymentConfirmationComponent implements OnInit {
           formData.append("description","Pago de productos FOCSI");
           formData.append("method",this.orderDto.paymentType);
 
-          this.paypalService.payment(formData).subscribe(e => console.log(e))
+          console.log(formData.get('total'));
+          console.log(formData.get('method'));
+          console.log("paypal sending");
+          this.paypalService.payment(formData).subscribe(e => {
+            console.log(e);
+            // this.router.navigateByUrl(e);
+            window.location.href = e;
+          })
 
         }else{
           this.router.navigate(['']);

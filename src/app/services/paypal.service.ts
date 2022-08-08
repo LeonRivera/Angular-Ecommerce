@@ -12,7 +12,7 @@ export class PaypalService {
 
   constructor(protected httpClient: HttpClient, protected router: Router) {
     if (this.ENV === "dev") {
-      this.baseUrl = `localhost:8080/api/v1/services/paypal`;
+      this.baseUrl = `http://localhost:8080/api/v1/services/paypal`;
     } else {
       this.baseUrl = `https://fotsi-ecommerce-api.azurewebsites.net/api/v1/services/paypal`;
     }
@@ -20,7 +20,7 @@ export class PaypalService {
 
 
   payment(type:any):Observable<any>{
-    return this.httpClient.post<any>(this.baseUrl, type)
+    return this.httpClient.post(this.baseUrl, type , {responseType: 'text'})
     .pipe(
       catchError(e => {
         return throwError(e);
