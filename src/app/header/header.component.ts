@@ -24,10 +24,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       
-      {
-        label: "Edit",
-        icon: "pi pi-fw pi-pencil",
-      },
+      // {
+      //   label: "Edit",
+      //   icon: "pi pi-fw pi-pencil",
+      // },
       
       
       {
@@ -51,7 +51,7 @@ export class HeaderComponent implements OnInit {
 
   show() {
     const ref = this.dialogService.open(TableProductsComponent, {
-        header: 'Your cart',
+        header: 'Tu carrito',
         width: '70%',
         data: {
           productsCart: this.cartProductsHeader

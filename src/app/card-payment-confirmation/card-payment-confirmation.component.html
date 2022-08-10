@@ -32,4 +32,9 @@
 </p-card>
 
 
-<p-confirmDialog header="Confirmacion" icon="pi pi-exclamation-triangle" position="bottom"></p-confirmDialog>
+<p-confirmDialog #cd header="Confirmacion" icon="pi pi-exclamation-triangle" position="bottom">
+  <ng-template pTemplate="footer">
+    <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+    <button type="button" pButton icon="pi pi-check" label="Sí" (click)="cd.accept()"></button>
+  </ng-template>
+</p-confirmDialog>

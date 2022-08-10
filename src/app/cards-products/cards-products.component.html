@@ -7,7 +7,8 @@
     styleClass="p-card-shadow "
   >
     <ng-template pTemplate="header">
-      <img alt="Card" src="{{ p.urlImage }}" />
+      <!-- <img alt="Card" src="{{ p.urlImage }}" /> -->
+      <p-image src={{p.urlImage}} [preview]="true" alt="Image" width="250"></p-image>
     </ng-template>
     <p>{{ p.description }}</p>
     <ng-template pTemplate="footer">
