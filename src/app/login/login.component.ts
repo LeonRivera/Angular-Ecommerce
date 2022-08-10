@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { MessageService } from "primeng/api";
 import { Customer } from "../models/customer";
 import { CustomerService } from "../services/customer.service";
 
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private customerService: CustomerService,
-    private router: Router
+    private router: Router,
+    private messageService:MessageService
   ) {}
 
   ngOnInit(): void {}
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
         if (customerBd.password == this.customer.password) {
           this.router.navigate(["/"]);
         } else {
+          this.messageService.add({severity:'error', summary:'Ha ocurrido un error', detail:"Contraseña Incorrecta"});
           console.log("no puedes pasar chavo");
         }
       });

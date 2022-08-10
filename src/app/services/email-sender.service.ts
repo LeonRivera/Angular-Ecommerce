@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class EmailSenderService {
 
   private baseUrl: string = "";
-  private ENV:string = "dev";
+  private ENV:string = "prod";
 
     
   constructor(protected httpClient: HttpClient,protected router: Router){

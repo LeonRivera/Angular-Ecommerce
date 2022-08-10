@@ -20,7 +20,6 @@ const routes: Routes = [
   { path: "login", component: LoginComponent},
   { path: "register", component: FormCustomersComponent},
 
-
   { path: "users", component: TableUsersComponent },
   { path: "users/form", component: FormUsersComponent },
   { path: "customers/form", component: FormCustomersComponent },

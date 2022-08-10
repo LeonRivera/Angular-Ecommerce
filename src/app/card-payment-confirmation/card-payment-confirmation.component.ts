@@ -40,7 +40,7 @@ export class CardPaymentConfirmationComponent implements OnInit {
 
   confirm() {
     this.confirmationService.confirm({
-      message: "Are you sure that you want to perform this action?",
+      message: "Estas seguro que quieres confirmar esta accion?",
       accept: () => {
         // console.log("accepted");
 

@@ -55,7 +55,7 @@ export class CardsProductsComponent implements OnInit {
     this.messageService.add({
       severity: 'success',
       summary: 'Agregado al carrito',
-      detail: 'Agregaste un producto al carrito',
+      detail: `Agregaste ${product.name} al carrito!`,
     });
   }
 

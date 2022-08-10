@@ -8,7 +8,7 @@ import { catchError, Observable, throwError } from "rxjs";
 })
 export class PaypalService {
   private baseUrl: string = "";
-  private ENV: string = "dev";
+  private ENV: string = "prod";
 
   constructor(protected httpClient: HttpClient, protected router: Router) {
     if (this.ENV === "dev") {
