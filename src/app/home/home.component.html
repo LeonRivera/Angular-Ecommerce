@@ -5,7 +5,8 @@
         <section>
             <span class="block text-6xl font-bold mb-1">Encuentra las artesanias</span>
             <div class="text-6xl text-primary font-bold mb-3">que no sabias que necesitabas</div>
-            <p class="mt-0 mb-4 text-700 line-height-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <!-- <p class="mt-0 mb-4 text-700 line-height-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
+            <p class="mt-0 mb-4 text-700 line-height-3">El ecommerce de artesanias mas grande de latinoamerica esta esperando por entregarte tu proximo sueño hecho realidad, ORDENA YA!.</p>
             
 
 
@@ -14,7 +15,16 @@
         </section>
     </div>
     <div class="col-12 md:col-6 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1562868198-be7fbd14123d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Image" class="md:ml-auto block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
+        <p-carousel [value]="imagesCarousel" [autoplayInterval]="3000" [circular]="true"
+        [showIndicators]="false" [showNavigators]="false">
+            <ng-template let-image pTemplate="item">
+                <!-- <img src={{image}} alt=""> -->
+        <!-- <img src="https://images.unsplash.com/photo-1562868198-be7fbd14123d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Image" class="md:ml-auto block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)"> -->
+        <!-- <img src={{image}} alt="Image" class="md:ml-auto block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)"> -->
+        <img src={{image}} alt="Image" class="md:ml-auto block md:h-full w-full">
+
+            </ng-template>
+        </p-carousel>
     </div>
 </div>
 

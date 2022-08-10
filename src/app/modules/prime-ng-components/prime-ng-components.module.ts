@@ -22,6 +22,7 @@ import {DividerModule} from 'primeng/divider';
 import {SidebarModule} from 'primeng/sidebar';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ImageModule} from 'primeng/image';
+import {CarouselModule} from 'primeng/carousel';
 
 const PrimeNgComponents = [
   ButtonModule,
@@ -46,7 +47,8 @@ const PrimeNgComponents = [
   DividerModule,
   SidebarModule,
   ConfirmDialogModule,
-  ImageModule
+  ImageModule,
+  CarouselModule
 ]
 
 @NgModule({

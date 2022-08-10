@@ -15,9 +15,19 @@ export class HomeComponent implements OnInit {
 
   paramSuccess:string = "";
 
+  imagesCarousel:string[] = [];
+
   constructor(private activatedRoute:ActivatedRoute,
     private router:Router,
     private messageService: MessageService) { 
+
+    this.imagesCarousel = [
+      "https://images.unsplash.com/photo-1562868198-be7fbd14123d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "https://mexicorutamagica.mx/wp-content/uploads/2021/10/artesanias-mexicanas-mas-representativas.jpg",
+      "https://mymodernmet.com/wp/wp-content/uploads/2020/10/Artesanias-mexicanas-1.jpg",
+      "https://blog.xcaret.com/es/wp-content/uploads/2020/11/Artesania-mexicana-arte-huichol.jpg",
+      "https://lasbuenascompras.com.mx/wp-content/uploads/2021/04/artesanos-artesanias-mexico.jpg"
+    ]
     this.activatedRoute.queryParams.subscribe(p => {
       this.paramSuccess = p['success'];
       
