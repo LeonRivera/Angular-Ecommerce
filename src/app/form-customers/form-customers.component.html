@@ -38,8 +38,8 @@
         height="100"
         class="mb-3"
       />
-      <div class="text-900 text-3xl font-medium mb-3">Register</div>
-      <a [routerLink]="['/login']">Login?</a>
+      <div class="text-900 text-3xl font-medium mb-3">Registrarse</div>
+      <a [routerLink]="['/login']" class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Entrar?</a>
       
     </div>
 
@@ -47,7 +47,7 @@
   
   
 
-      <label for="" class="block text-900 font-medium mb-2">Full Name</label>
+      <label for="" class="block text-900 font-medium mb-2">Nombre completo</label>
       <input [(ngModel)]="customer.fullName"  type="text" pInputText class="w-full mb-3" />
       <label for="" class="block text-900 font-medium mb-2">Email</label>
       <input [(ngModel)]="customer.email"  type="text" pInputText class="w-full mb-3" />
@@ -66,7 +66,7 @@
           [auto]="true"
           [customUpload]="true"
           (onSelect)="onBasicUpload($event)"
-          chooseLabel="Upload Profile Picture"
+          chooseLabel="Subir imagen de perfil"
           pTooltip="You can add an image only once"
           tooltipPosition="top"
         ></p-fileUpload>
@@ -88,7 +88,7 @@
           class="w-full"
           pButton
           type="button"
-          label="Create"
+          label="Crear perfil"
           (click)="showDialog('save')"
         ></button>
       </ng-template>
