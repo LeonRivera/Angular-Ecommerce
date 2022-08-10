@@ -18,6 +18,9 @@ import { TableUsersComponent } from "./table-users/table-users.component";
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "login", component: LoginComponent},
+  { path: "register", component: FormCustomersComponent},
+
+
   { path: "users", component: TableUsersComponent },
   { path: "users/form", component: FormUsersComponent },
   { path: "customers/form", component: FormCustomersComponent },
