@@ -1,5 +1,5 @@
 <div class="mt-8 w-full grid  ">
-  <div  class="lg:col-4 md:col-6 sm:col-12 flex justify-content-center" *ngFor="let p of products">
+  <div  class="lg:col-4 md:col-6 sm:col-12 col-12 flex justify-content-center" *ngFor="let p of products">
     <p-card
     header="{{ p.name }}"
     subheader="{{ p.price | currency: 'MNX':'$':'1.2' }}"
