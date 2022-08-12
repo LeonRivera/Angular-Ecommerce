@@ -10,7 +10,10 @@
         <label for="">Edad</label>
         <div class="p-inputgroup my-2">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-            <input [(ngModel)]="orderDto.age" type="text" pInputText placeholder="Edad">         
+            <!-- <input [(ngModel)]="num" type="text" pInputText placeholder="Edad" pKeyFilter="int">  -->
+            <!-- <input [(ngModel)]="orderDto.age" type="text" pKeyFilter="int">         -->
+            <!-- <input id="cc" type="text" name="cc" [pKeyFilter]="'int'" [(ngModel)]="orderDto.age" pInputText> -->
+            <input type="number"  pInputText  [(ngModel)]="orderDto.age" [pKeyFilter]="'money'" placeholder="Edad">
         </div>
         <label for="">Correo electronico</label>
         <div class="p-inputgroup my-2">

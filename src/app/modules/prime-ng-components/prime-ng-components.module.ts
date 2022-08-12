@@ -24,6 +24,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ImageModule} from 'primeng/image';
 import {CarouselModule} from 'primeng/carousel';
 import {PasswordModule} from 'primeng/password';
+import {KeyFilterModule} from 'primeng/keyfilter';
 
 const PrimeNgComponents = [
   ButtonModule,
@@ -50,7 +51,8 @@ const PrimeNgComponents = [
   ConfirmDialogModule,
   ImageModule,
   CarouselModule,
-  PasswordModule
+  PasswordModule,
+  KeyFilterModule
 ]
 
 @NgModule({
