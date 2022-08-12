@@ -13,6 +13,8 @@ import { ConfirmationService } from "primeng/api";
 export class CardPaymentInfoComponent implements OnInit {
   orderDto: OrderDto = new OrderDto();
 
+  num:string = "";
+  cc:string="";
   constructor(
     private router: Router,
     private location: Location,
