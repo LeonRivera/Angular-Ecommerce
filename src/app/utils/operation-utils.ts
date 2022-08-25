@@ -11,9 +11,14 @@ export class OperationUtils {
   }
 
   getEnvBaseUrl(modelUrl: string) {
-    if (AppConstants.ENV === AppConstants.ENV_DEV) {
-      return AppConstants.BASE_URL_DEV + `${modelUrl}`;
+
+    switch (AppConstants.ENV) {
+      case AppConstants.ENV_DEV:
+        return AppConstants.BASE_URL_DEV + `${modelUrl}`;
+      case AppConstants.ENV_PROD:
+        return AppConstants.BASE_URL_PROD + `${modelUrl}`;
+      default:
+        return AppConstants.BASE_URL_DEV + `${modelUrl}`;
     }
-    return AppConstants.BASE_URL_PROD + `${modelUrl}`;
   }
 }

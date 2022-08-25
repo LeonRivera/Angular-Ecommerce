@@ -12,6 +12,7 @@ import { OperationUtils } from '../utils/operation-utils';
 import { MessageService } from 'primeng/api';
 import { ProductService } from '../services/product.service';
 import { Product } from '../models/product';
+import { ProductOrder } from '../models/product-order';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class CardsProductsComponent implements OnInit {
   products:Product[];
 
   cartProducts:Product[] = [];
+  cartProductOrders:ProductOrder[] = [];
 
   @Output() cartProductsEvt = new EventEmitter<Product[]>();
 
@@ -46,10 +48,37 @@ export class CardsProductsComponent implements OnInit {
 
   addToCart(product:Product):void{
     console.log("agregando : "+ product.name);
-    this.cartProducts.push(product);
 
-    console.log(this.cartProducts);
+    let productExistsOnCart = false;
 
+    this.cartProductOrders.forEach( p => {
+      if(p.product.id = product.id){
+        productExistsOnCart = true;
+      }
+    })
+
+    if(productExistsOnCart){
+      this.cartProductOrders.map( p => {
+        
+      })
+    }
+    
+
+    // this.cartProducts.push(product);
+
+    // this.cartProducts = this.cartProducts.filter( p => {
+    //   if(p.id === product.id){
+    //     return p.quantity++;
+    //   }else{
+    //     return p;
+    //   }
+    // })
+
+    if
+
+    // console.log(this.cartProducts);
+
+    // this.cartProductsEvt.emit(this.cartProducts);
     this.cartProductsEvt.emit(this.cartProducts);
 
     this.messageService.add({
