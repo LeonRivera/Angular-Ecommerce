@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { MenuItem } from "primeng/api";
 import { DialogService } from "primeng/dynamicdialog";
 import { Product } from "../models/product";
+import { ProductOrder } from "../models/product-order";
 import { TableProductsComponent } from "../table-products/table-products.component";
 
 @Component({
@@ -14,7 +15,9 @@ import { TableProductsComponent } from "../table-products/table-products.compone
 export class HeaderComponent implements OnInit {
   items: MenuItem[];
 
-  @Input() cartProductsHeader: Product[] = [];
+
+  //Getting from CardProducts -> Home -> Header
+  @Input() cartProductsHeader: ProductOrder[] = [];
 
   constructor(public dialogService: DialogService,
     private router:Router) {}

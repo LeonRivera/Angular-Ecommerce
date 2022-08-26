@@ -4,6 +4,7 @@ import { DynamicDialogRef } from "primeng/dynamicdialog";
 import { DynamicDialogConfig } from "primeng/dynamicdialog";
 import { OrderDto } from "../models/order-dto";
 import { Product } from "../models/product";
+import { ProductOrder } from "../models/product-order";
 
 @Component({
   selector: "app-table-products",
@@ -13,7 +14,7 @@ import { Product } from "../models/product";
 export class TableProductsComponent implements OnInit {
 
   
-  @Input() cartProducts:Product[] = [];
+  @Input() cartProducts:ProductOrder[] = [];
   
   @Input() pay:boolean;
 
@@ -51,16 +52,16 @@ export class TableProductsComponent implements OnInit {
 
     if(this.cartProducts != undefined){
       this.cartProducts.forEach( p => {
-        this.totalCartPrice += p.price;
+        this.totalCartPrice += p.totalPrice;
       })
     }
     
   }
 
   proceedPayment(){
-    this.orderDto.products = this.cartProducts;
-    this.orderDto.totalPrice = this.totalCartPrice;
-    this.orderDto.quantity = this.cartProducts.length;
+    this.orderDto.products = null;
+    this.orderDto.totalPrice = null;
+    this.orderDto.quantity = null;
 
 
     console.log("actual object: " + this.orderDto.products);

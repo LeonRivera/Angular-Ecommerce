@@ -5,15 +5,17 @@
         <ng-template pTemplate="header">
             <tr>
                 <th></th> 
-                <th>Nombre</th> 
+                <th>Producto</th> 
                 <th>Precio</th>
+                <th>Cantidad</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-p>
             <tr>
-                <td><img style="width: 50px;" src="{{p.urlImage}}"></td>
-                <td>{{p.name}}</td>
-                <td>{{p.price}}</td>
+                <td><img style="width: 50px;" src="{{p.product.urlImage}}"></td>
+                <td>{{p.product.name}}</td>
+                <td>{{p.totalPrice}}</td>
+                <td>{{p.quantity}}</td>
             </tr>
         </ng-template>
     </p-table>
