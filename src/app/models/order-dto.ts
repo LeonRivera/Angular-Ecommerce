@@ -1,4 +1,5 @@
 import { Product } from "./product";
+import { ProductOrder } from "./product-order";
 
 export class OrderDto {
 
@@ -12,7 +13,7 @@ export class OrderDto {
     expirationDate:string = "";
     totalPrice:number = 0.0;
     quantity:number = 0;
-    products:Product[] = [];
+    products:ProductOrder[] = [];
     paymentType:string;
 
 }

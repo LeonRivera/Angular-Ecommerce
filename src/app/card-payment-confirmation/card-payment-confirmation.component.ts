@@ -4,6 +4,7 @@ import { ConfirmationService } from "primeng/api";
 import { DialogService } from "primeng/dynamicdialog";
 import { OrderDto } from "../models/order-dto";
 import { Product } from "../models/product";
+import { ProductOrder } from "../models/product-order";
 import { PaypalService } from "../services/paypal.service";
 
 @Component({
@@ -15,7 +16,7 @@ import { PaypalService } from "../services/paypal.service";
 export class CardPaymentConfirmationComponent implements OnInit {
   orderDto: OrderDto = new OrderDto();
 
-  cartProductsConfirm: Product[] = [];
+  cartProductsConfirm: ProductOrder[] = [];
 
   constructor(
     private router: Router,
@@ -65,7 +66,8 @@ export class CardPaymentConfirmationComponent implements OnInit {
           this.router.navigate(['']);
 
         }
-
+  
+        
       },
     });
   }
