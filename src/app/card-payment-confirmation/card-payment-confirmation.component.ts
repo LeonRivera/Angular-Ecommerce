@@ -66,10 +66,13 @@ export class CardPaymentConfirmationComponent implements OnInit {
           this.router.navigate(['']);
 
         }
-  
-          
+    
+
 
         
+          
+
+
       },
     });
   }
