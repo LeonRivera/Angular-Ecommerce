@@ -67,6 +67,8 @@ export class CardPaymentConfirmationComponent implements OnInit {
 
         }
   
+          
+
         
       },
     });
