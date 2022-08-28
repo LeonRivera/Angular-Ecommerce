@@ -19,14 +19,28 @@ export class HeaderComponent implements OnInit {
   //Getting from CardProducts -> Home -> Header
   @Input() cartProductsHeader: ProductOrder[] = [];
 
+
+
+  // LocalStorage impl
+  cartProductsHeaderLocalStorage: ProductOrder[] = [];
+
   constructor(public dialogService: DialogService,
     private router:Router) {}
 
   productsQuantity: number = this.cartProductsHeader.length;
 
   ngOnInit(): void {
+
+
+    this.cartProductsHeader = localStorage.getItem("cartProducts") ?  JSON.parse(localStorage.getItem("cartProducts")) : [];
+
+    
+
+    // this.cartProductsHeaderLocalStorage = JSON.parse(localStorage.getItem("cartProducts"));
+
     this.items = [
       
+
       // {
       //   label: "Edit",
       //   icon: "pi pi-fw pi-pencil",
@@ -57,6 +71,7 @@ export class HeaderComponent implements OnInit {
         header: 'Tu carrito',
         width: '70%',
         data: {
+          // productsCart: this.cartProductsHeaderLocalStorage
           productsCart: this.cartProductsHeader
         }
     });

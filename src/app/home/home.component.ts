@@ -67,7 +67,10 @@ export class HomeComponent implements OnInit {
     console.log("Home component");
     console.log(products);
     this.cartProductsHome = products;
-    console.log(this.cartProductsHome);
+    // console.log(this.cartProductsHome);
+    
+
+    localStorage.setItem("cartProducts", JSON.stringify(this.cartProductsHome));
   }
 
   goToProducts() {

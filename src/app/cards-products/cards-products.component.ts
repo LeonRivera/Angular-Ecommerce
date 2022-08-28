@@ -39,7 +39,16 @@ export class CardsProductsComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+
+    //Recover localstorage
+    //if we have products on the local storage fill the cartProductsOrder otherwise set [] empty
+    if(localStorage.getItem("cartProducts") != null){
+      this.cartProductOrders = JSON.parse(localStorage.getItem("cartProducts"));
+    }
+
+  }
 
   addToCart(product: Product): void {
 
@@ -63,6 +72,12 @@ export class CardsProductsComponent implements OnInit {
     }
 
     console.log(this.cartProductOrders);
+
+
+    
+    // localStorage.setItem("cartProducts", JSON.stringify(this.cartProductOrders));
+
+
 
 
     this.cartProductsEvt.emit(this.cartProductOrders);
