@@ -84,4 +84,17 @@ export class TableProductsComponent implements OnInit {
 
   //   return this.totalCartPrice;
   // }
+
+
+  deleteProductCar(id:number):void{
+
+    // let cartStorage = JSON.parse(localStorage.getItem("cartProducts"))
+
+    this.cartProducts = this.cartProducts.filter( p => {
+      return p.product.id != id;
+    })
+
+    localStorage.setItem("cartProducts", JSON.stringify(this.cartProducts));
+
+  }
 }
