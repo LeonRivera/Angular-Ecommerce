@@ -50,13 +50,19 @@ export class TableProductsComponent implements OnInit {
 
   ngOnInit(): void {
 
+   this.calculateTotalPrice();
+    
+  }
+
+  calculateTotalPrice():void{
+    this.totalCartPrice = 0;
     if(this.cartProducts != undefined){
       this.cartProducts.forEach( p => {
         this.totalCartPrice += p.totalPrice;
       })
     }
-    
   }
+
 
   proceedPayment(){
     this.orderDto.products = null;
@@ -91,10 +97,23 @@ export class TableProductsComponent implements OnInit {
     // let cartStorage = JSON.parse(localStorage.getItem("cartProducts"))
 
     this.cartProducts = this.cartProducts.filter( p => {
-      return p.product.id != id;
+      if(p.product.id == id){
+        if(p.quantity > 1){
+          p.totalPrice -= p.product.price
+          p.quantity -= 1;
+          return p.product.id;
+        }else{
+          return p.product.id != id;
+        }
+      }else{
+        return p;
+      }
     })
+
+
 
     localStorage.setItem("cartProducts", JSON.stringify(this.cartProducts));
 
+    this.calculateTotalPrice();
   }
 }

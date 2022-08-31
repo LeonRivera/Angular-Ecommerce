@@ -75,6 +75,10 @@ export class HeaderComponent implements OnInit {
           productsCart: this.cartProductsHeader
         }
     });
+
+    ref.onClose.subscribe(e => {
+      this.cartProductsHeader = localStorage.getItem("cartProducts") ?  JSON.parse(localStorage.getItem("cartProducts")) : [];
+    })
 }
 
 }
