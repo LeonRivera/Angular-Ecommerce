@@ -32,6 +32,9 @@ export class CardPaymentConfirmationComponent implements OnInit {
 
     console.log(this.orderDto);
 
+    console.log("Restorin localstorage confirmation");
+    this.orderDto.products = localStorage.getItem("cartProducts") ?  JSON.parse(localStorage.getItem("cartProducts")) : [];
+
     this.cartProductsConfirm = this.orderDto.products;
   }
 

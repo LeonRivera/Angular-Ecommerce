@@ -17,7 +17,10 @@ export class CardPaymentDeliveryComponent implements OnInit {
   ngOnInit(): void {
     this.orderDto = history.state;
 
-      console.log(this.orderDto);
+    //Restoring another time the products of local storage in delivery 
+    console.log("Restorin localstorage delivery");
+    this.orderDto.products = localStorage.getItem("cartProducts") ?  JSON.parse(localStorage.getItem("cartProducts")) : [];
+    console.log(this.orderDto);
   }
 
   

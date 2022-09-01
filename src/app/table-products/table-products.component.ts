@@ -65,9 +65,9 @@ export class TableProductsComponent implements OnInit {
 
 
   proceedPayment(){
-    this.orderDto.products = null;
-    this.orderDto.totalPrice = null;
-    this.orderDto.quantity = null;
+    this.orderDto.products = this.cartProducts;
+    this.orderDto.totalPrice = this.totalCartPrice;
+    this.orderDto.quantity = 0;
 
 
     console.log("actual object: " + this.orderDto.products);
