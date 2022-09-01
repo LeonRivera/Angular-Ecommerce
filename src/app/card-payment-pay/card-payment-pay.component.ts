@@ -25,6 +25,9 @@ export class CardPaymentPayComponent implements OnInit {
   ngOnInit(): void {
     // this.orderDto.paymentType="web"
     this.orderDto = history.state;
+
+    console.log("Restorin localstorage pay");
+    this.orderDto.products = localStorage.getItem("cartProducts") ?  JSON.parse(localStorage.getItem("cartProducts")) : [];
   }
 
   

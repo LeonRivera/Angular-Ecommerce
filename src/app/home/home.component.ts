@@ -74,11 +74,11 @@ export class HomeComponent implements OnInit {
   }
 
   goToProducts() {
-    console.log("here");
-    this.messageService.add({
-      severity: "success",
-      summary: "Pago Cancelado",
-      detail: "Tu pago fue cancelado",
-    });
+    // console.log("here");
+    // this.messageService.add({
+    //   severity: "success",
+    //   summary: "Pago Cancelado",
+    //   detail: "Tu pago fue cancelado",
+    // });
   }
 }
