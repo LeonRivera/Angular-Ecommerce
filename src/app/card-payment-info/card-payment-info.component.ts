@@ -2,7 +2,7 @@ import { Location } from "@angular/common";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { OrderDto } from "../models/order-dto";
-import { ConfirmationService } from "primeng/api";
+import { ConfirmationService, Message } from "primeng/api";
 
 @Component({
   selector: "app-card-payment-info",
@@ -11,6 +11,9 @@ import { ConfirmationService } from "primeng/api";
   providers: [ConfirmationService],
 })
 export class CardPaymentInfoComponent implements OnInit {
+
+  msgsValidationInputs: Message[];
+
   orderDto: OrderDto = new OrderDto();
 
   num:string = "";
@@ -32,7 +35,32 @@ export class CardPaymentInfoComponent implements OnInit {
   }
 
   nextStep(): void {
-    this.router.navigateByUrl("payment/delivery", { state: this.orderDto });
+
+    console.log(this.orderDto.name);
+
+    let isValidForm = true;
+
+    if(this.orderDto.name === ""){
+      isValidForm = false;
+      console.log("name vacio");
+      this.msgsValidationInputs = [{severity:'warn', summary:'Warning', detail:`Ingresa un valor sobre el nombre`}];
+    }
+
+    if(this.orderDto.age === 0){
+      isValidForm = false;
+      console.log("name vacio");
+      this.msgsValidationInputs = [{severity:'warn', summary:'Warning', detail:`Ingresa un valor sobre la edad`}];
+    }
+
+    if(this.orderDto.email === ""){
+      isValidForm = false;
+      console.log("name vacio");
+      this.msgsValidationInputs = [{severity:'warn', summary:'Warning', detail:`Ingresa un valor sobre el email`}];
+    }
+
+    if(isValidForm){
+      this.router.navigateByUrl("payment/delivery", { state: this.orderDto });
+    }
   }
 
   
