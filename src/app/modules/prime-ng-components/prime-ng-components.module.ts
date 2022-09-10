@@ -25,6 +25,7 @@ import {ImageModule} from 'primeng/image';
 import {CarouselModule} from 'primeng/carousel';
 import {PasswordModule} from 'primeng/password';
 import {KeyFilterModule} from 'primeng/keyfilter';
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
 
 const PrimeNgComponents = [
   ButtonModule,
@@ -52,7 +53,8 @@ const PrimeNgComponents = [
   ImageModule,
   CarouselModule,
   PasswordModule,
-  KeyFilterModule
+  KeyFilterModule,
+  ProgressSpinnerModule
 ]
 
 @NgModule({

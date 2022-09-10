@@ -1,29 +1,44 @@
-<div class="mt-8 w-full grid  ">
-  <div  class="lg:col-4 md:col-6 sm:col-12 col-12 flex justify-content-center" *ngFor="let p of products">
-    <p-card
-    header="{{ p.name }}"
-    subheader="{{ p.price | currency: 'MNX':'$':'1.2' }}"
-    [style]="{ width: '300px' }"
-    styleClass="p-card-shadow "
+<div class="mt-8 w-full grid">
+  <div
+    class="w-full flex justify-content-center"
+    *ngIf="!contentLoaded; else tableTemplate"
   >
-    <ng-template pTemplate="header">
-      <!-- <img alt="Card" src="{{ p.urlImage }}" /> -->
-      <p-image src={{p.urlImage}} [preview]="true" alt="Image" width="250"></p-image>
-    </ng-template>
-    <p>{{ p.description }}</p>
-    <ng-template pTemplate="footer">
-      <!-- <p-button label="Save" icon="pi pi-check"></p-button> -->
-      <p-button
-        label="Agregar al carrito"
-        icon="pi pi-shopping-cart"
-        styleClass="p-button-secondary w-full"
-        (click)="addToCart(p)"
-      ></p-button>
-    </ng-template>
-  </p-card>
+    <p-progressSpinner></p-progressSpinner>
   </div>
-  
-</div>
 
+  <ng-template #tableTemplate>
+    <div
+      class="lg:col-4 md:col-6 sm:col-12 col-12 flex justify-content-center"
+      *ngFor="let p of products"
+    >
+      <p-card
+        header="{{ p.name }}"
+        subheader="{{ p.price | currency: 'MNX':'$':'1.2' }}"
+        [style]="{ width: '300px' }"
+        styleClass="p-card-shadow "
+      >
+        <ng-template pTemplate="header">
+          <!-- <img alt="Card" src="{{ p.urlImage }}" /> -->
+          <p-image
+            src="{{ p.urlImage }}"
+            [preview]="true"
+            alt="Image"
+            width="250"
+          ></p-image>
+        </ng-template>
+        <p>{{ p.description }}</p>
+        <ng-template pTemplate="footer">
+          <!-- <p-button label="Save" icon="pi pi-check"></p-button> -->
+          <p-button
+            label="Agregar al carrito"
+            icon="pi pi-shopping-cart"
+            styleClass="p-button-secondary w-full"
+            (click)="addToCart(p)"
+          ></p-button>
+        </ng-template>
+      </p-card>
+    </div>
+  </ng-template>
+</div>
 
 <p-toast></p-toast>

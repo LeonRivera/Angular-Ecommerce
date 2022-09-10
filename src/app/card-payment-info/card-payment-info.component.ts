@@ -16,6 +16,11 @@ export class CardPaymentInfoComponent implements OnInit {
 
   orderDto: OrderDto = new OrderDto();
 
+  // invalidInput:string = "ng-invalid ng-dirty";
+  invalidName:boolean = false;
+  invalidAge:boolean = false;
+  invalidEmail:boolean = false;
+
   num:string = "";
   cc:string="";
   constructor(
@@ -41,26 +46,37 @@ export class CardPaymentInfoComponent implements OnInit {
     let isValidForm = true;
 
     if(this.orderDto.name === ""){
+      this.invalidName = true;
       isValidForm = false;
       console.log("name vacio");
-      this.msgsValidationInputs = [{severity:'warn', summary:'Warning', detail:`Ingresa un valor sobre el nombre`}];
+      this.msgsValidationInputs = [{severity:'error', summary:'Campo requerido', detail:`Ingresa un valor sobre el nombre`}];
+    }else{
+      this.invalidName = false;
     }
 
     if(this.orderDto.age === 0){
+      this.invalidAge = true;
       isValidForm = false;
-      console.log("name vacio");
-      this.msgsValidationInputs = [{severity:'warn', summary:'Warning', detail:`Ingresa un valor sobre la edad`}];
+      console.log("age vacio");
+      this.msgsValidationInputs = [{severity:'error', summary:'Campo requerido', detail:`Ingresa un valor sobre la edad`}];
+    }else{
+      this.invalidAge = false;
     }
 
     if(this.orderDto.email === ""){
+      this.invalidEmail = true
       isValidForm = false;
-      console.log("name vacio");
-      this.msgsValidationInputs = [{severity:'warn', summary:'Warning', detail:`Ingresa un valor sobre el email`}];
+      console.log("email vacio");
+      this.msgsValidationInputs = [{severity:'error', summary:'Campo requerido', detail:`Ingresa un valor sobre el email`}];
+    }else{
+      this.invalidEmail = false;
     }
 
     if(isValidForm){
       this.router.navigateByUrl("payment/delivery", { state: this.orderDto });
     }
+
+
   }
 
   

@@ -5,7 +5,7 @@
         <label for="">Nombre</label>
         <div class="p-inputgroup my-2">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-            <input required [(ngModel)]="orderDto.name" type="text" pInputText placeholder="Nombre">         
+            <input [class.ng-dirty]="invalidName" required [(ngModel)]="orderDto.name" type="text" pInputText placeholder="Nombre">         
         </div>
         <label for="">Edad</label>
         <div class="p-inputgroup my-2">
@@ -13,12 +13,12 @@
             <!-- <input [(ngModel)]="num" type="text" pInputText placeholder="Edad" pKeyFilter="int">  -->
             <!-- <input [(ngModel)]="orderDto.age" type="text" pKeyFilter="int">         -->
             <!-- <input id="cc" type="text" name="cc" [pKeyFilter]="'int'" [(ngModel)]="orderDto.age" pInputText> -->
-            <input type="number"  pInputText  [(ngModel)]="orderDto.age" [pKeyFilter]="'money'" placeholder="Edad">
+            <input [class.ng-dirty]="invalidAge" required type="number" value=""  pInputText  [(ngModel)]="orderDto.age" [pKeyFilter]="'money'" placeholder="Edad">
         </div>
         <label for="">Correo electronico</label>
         <div class="p-inputgroup my-2">
             <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-            <input [(ngModel)]="orderDto.email" type="text" pInputText placeholder="Correo electronico">         
+            <input [class.ng-dirty]="invalidEmail" required [(ngModel)]="orderDto.email" type="text" pInputText placeholder="Correo electronico">         
         </div>
     </div>
     

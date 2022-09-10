@@ -26,6 +26,8 @@ export class CardsProductsComponent implements OnInit {
   cartProducts: Product[] = [];
   cartProductOrders: ProductOrder[] = [];
 
+  contentLoaded:boolean = false;
+
   //Sending to home component
   @Output() cartProductsEvt = new EventEmitter<ProductOrder[]>();
 
@@ -36,6 +38,7 @@ export class CardsProductsComponent implements OnInit {
   ) {
     this.productService.findAll().subscribe((p) => {
       this.products = p;
+      this.contentLoaded = true;
     });
   }
 
